@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <meta name="description" content="MB" />
+    <meta name="Author" content="MB" />
+    <meta name="keywords" content="MB" />
+    <meta name="robots" content="noindex, nofollow" />
+
+	<title>HOME AUTOMATION 2025</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+	
+	<script src="../socket.io/socket.io.js"></script>
+
+	<style>
+
+		
+@font-face {
+  font-family: "TradeGothicLTPro-Bold";
+  src: url("fonts/TradeGothicLTPro-Bold.ttf") format("truetype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Acumin";
+  src: url("fonts/AcuminVariableConcept.otf") format("opentype");
+  font-style: normal;
+  font-display: swap;
+}
+
+
+		html, body, div, span, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		abbr, address, cite, code,
+		del, dfn, em, img, ins, kbd, q, samp,
+		small, strong, sub, sup, var,
+		b, i,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, figcaption, figure,
+		footer, header, hgroup, menu, nav, section, summary,
+		time, mark, audio, video {
+			margin:0;
+			padding:0;
+			border:0;
+			outline:0;
+			font-size:100%;
+			vertical-align:baseline;
+			background:transparent;
+		}
+		html,
+		body {
+			background:#ffc400;
+			color:#c5c5c5;
+			width:100%;
+			height:100%;
+			cursor: default;
+		
+		}
+
+		body {
+			font-family: "Acumin";
+			font-style: normal;
+			font-size: 100%;
+			overflow-y: auto;
+			letter-spacing: 0.08em;
+			background:transparent;
+			text-align:left;
+			text-transform: uppercase;
+		}
+
+		h1{
+			font-style: normal;
+			font-size: 100px;
+			color: #fff;
+		}
+		h2{
+			font-style: normal;
+			font-size: 3.3vw;
+			color: #f5f5f5;
+			display: block;
+			width: 100%;
+			margin-bottom: 60px;
+		}
+		h2:after{
+			clear: both;
+		}
+		h3{
+			font-style: normal;
+			font-size: 2vw;
+			color: #c5c5c5;
+			margin-bottom: 2px;
+		}
+
+		h4{
+			font-style: normal;
+			font-size: 3vw;
+			color: #ccc;
+		}
+
+		#content {
+			width: 100%;
+			display: block;
+			padding: 0px;
+			text-align: center;
+			box-sizing: border-box;
+			height: 100% !important;
+			min-height: 100% !important;
+		}
+
+		.holder {
+			width: 100%;
+			display: block;
+			padding: 20px;
+			text-align: left;
+			box-sizing: border-box;
+			height: 100% !important;
+			min-height: 100% !important;
+			background:#202020;
+			overflow: hidden;
+		}
+
+		.left,.right{
+			width: 50%;
+			display: block;
+			padding: 0px;
+			text-align: left;
+			box-sizing: border-box;
+			float:left;
+		}
+
+		.bottom{
+			width: 100%;
+			display: block;
+			padding: 10px;
+			text-align: left;
+			box-sizing: border-box;
+			clear: both;
+		}
+		.right{
+			float:right;
+		}
+	
+     	.flexed{
+         	height: 100% !important;
+			min-height: 100% !important;
+			width: 100%; 
+            display: flex; 
+            align-items: center; 
+			text-align: center;	 
+         	box-sizing: border-box;
+     	}
+
+     	.flexcontent{
+			width: 100%; 
+            display: block; 
+			text-align: center; 
+         	box-sizing: border-box;
+     	}
+
+		.holderui {
+			display: block;
+			width: 100%;
+			padding: 20px;
+			text-align: center;
+			box-sizing: border-box;
+			position: relative;
+		}
+
+		.butt,.butt2 { 
+			box-sizing: border-box;
+		    margin: 6px 6px 6px 0;
+		    display: inline-block;
+		    width: 234px;
+		    height: 82px;
+		    border-bottom-right-radius: 6px;
+		    font-size: 1.4em;
+		    line-height: 82px;
+		    padding: 0px;
+		    border: 0;
+		    outline: 0;
+		    background: grey;
+		    text-align: center;
+		    text-transform: uppercase;
+		}
+
+		.butt2 { 
+			background: grey;
+		}
+		.allBar{
+			background: #ff7200;
+			width:100%;
+			display: block;
+			height: 4px;
+		}
+		.all{
+			background: #ff7200;
+			float:right;
+			height: 114px;
+			margin: 0px 0px 0 auto;
+		}
+		div.spacer{
+			display:block;
+			width: 100%;
+			height: 15px;
+		}
+
+
+		#topMenu{
+			display: none;
+			width: 100%;
+		}
+		.butt3 {
+			margin: 15px 2px 2px 0;
+			display: inline-block;
+			width: 21%;
+			height: 26px;
+			border-bottom-right-radius: 8px;
+			font-size: 0.8em;
+			line-height: 2.2em;
+			background-color: red;
+		}
+
+
+
+		#display {
+			display: none;
+		}
+
+		#time{
+			position:absolute;
+			top: 21px;
+			right: 16px;
+			text-align:left;
+			text-transform: uppercase;
+			font-family: 'Ubuntu', sans-serif;
+			z-index:100;
+		}
+		
+
+		#time span{
+		    font-style: normal!important; 
+		    font-size: 2vw!important; 
+		    color: #c5c5c5!important; 
+		    font-weight: bold;
+		}
+
+		#buttons{
+			text-align: left!important; 
+		}
+
+		.pulsate {
+			-webkit-animation: pulsate 2s ease-out;
+			-webkit-animation-iteration-count: infinite; 
+			opacity: 0;
+		}
+		@-webkit-keyframes pulsate {
+			0% { opacity: 0; }
+			50% { opacity: 1.0; }
+			100% { opacity: 0; }
+		}
+
+		.blink{
+			-webkit-animation: blinkie 0.2s infinite;
+			-moz-animation: blinkie 0.2s infinite;
+			-o-animation: blinkie 0.2s infinite;
+			animation: blinkie 0.2s infinite;
+		}
+
+		@-webkit-keyframes blinkie {
+			0%, 49% {
+				background-color: #e57e00;
+			}
+			50%, 100% {
+				background-color: #000;
+			}
+		}
+
+		span {
+			color:#CCCC90;
+			text-transform: uppercase;
+		}
+
+		.highcharts-credits{
+			display:none;
+		}
+
+		.highcharts-background{
+			fill: #151515!important;
+			height: 2vh;
+		}
+
+		.highcharts-grid-line{
+			stroke: #555;
+		}
+
+		.noselect {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		input[type='range'],
+		input[type='range']::-webkit-slider-runnable-track,
+		input[type='range']::-webkit-slider-thumb {
+			-webkit-appearance: none;
+		}
+
+		input[type=range]{
+			-webkit-appearance: none;
+			width: 100%;
+			display: block;
+			background: transparent;
+			cursor:none;
+		}
+
+		input[type=range]::-webkit-slider-runnable-track {
+			height: 40px;
+			background: #333;
+			border: none;
+			border-radius: 0px;
+		}
+
+		input[type=range]::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			border: none;
+			height: 40px;
+			width: 100px;
+			border-radius: 2px;
+			background: goldenrod;
+			margin-top: 0px;
+		}
+
+		input[type=range]:focus {
+			outline: none;
+		}
+
+		input[type=range]:focus::-webkit-slider-runnable-track {
+			height: 40px;
+			background: #444!important;
+			border: none;
+			border-radius: 0px;
+		}
+
+		#picker{
+		}
+		.IroHandle{
+			margin-top: 0;
+			width: 50px;
+			height: 50px;
+		}
+		.IroSlider{
+			margin-top: 40px!important;
+			border-radius: 4px!important;
+		}
+		.IroSliderGradient{
+			margin-top: 0px!important;
+			border-radius: 4px!important;
+		}
+
+		.blocky{
+			display: block;
+			width: 100%;
+			padding: 4vw;
+			box-sizing: border-box;
+			margin: 0;
+			line-height: 2vw;
+			text-transform: capitalize;
+		}
+		button{
+			font-family: "TradeGothicLTPro-Bold";
+			width: 214px;
+			margin:10px;
+			padding:18px 28px;
+			font-size:30px;
+			background:#333;
+			color:#fff;
+			border:0;
+			line-height: 5vw;
+			cursor:pointer;
+		}
+
+	</style>
+
+  </head>
+<body>
+
+<div id="content">
+
+	<div class="holder" id="disconnectedDiv">
+		<div class="flexed">
+			<div class="flexcontent">
+				<h1>DISCONNECTED FROM BASE</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="holder " id="disconnectedLocalDiv">
+		<div class="flexed">
+			<div class="flexcontent">
+				<h1>LOCAL CONNECTION ERROR</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="holder" id="buttons">
+
+		<div class="blocky">
+
+			<div id="picker"></div>
+
+		</div>
+
+		<div class="blocky">
+			<!-- table island 1 -->
+			<button onclick="toggleSingleLamp(1)" id="lampBtn1" >LIGHT 1</button>
+			<button onclick="toggleSingleLamp(2)" id="lampBtn2" >LIGHT 2</button>
+			<button onclick="toggleSingleLamp(3)" id="lampBtn3" >LIGHT 3</button>
+			<button onclick="toggleSingleLamp(4)" id="lampBtn4" >LIGHT 4</button>
+			<!-- table island 2 -->
+			<button onclick="toggleSingleLamp(5)" id="lampBtn5" >LIGHT 5</button>
+			<button onclick="toggleSingleLamp(6)" id="lampBtn6" >LIGHT 6</button>
+			<button onclick="toggleSingleLamp(7)" id="lampBtn7" >LIGHT 7</button>
+			<button onclick="toggleSingleLamp(8)" id="lampBtn8" >LIGHT 8</button>
+			<!-- table island 3 -->
+			<button onclick="toggleSingleLamp(9)" id="lampBtn9" >LIGHT 9</button>
+			<button onclick="toggleSingleLamp(10)" id="lampBtn10" >LIGHT 10</button>
+			<button onclick="toggleSingleLamp(11)" id="lampBtn11" >LIGHT 11</button>
+			<button onclick="toggleSingleLamp(12)" id="lampBtn12" >LIGHT 12</button>
+			<!-- table island 4 -->
+			<button onclick="toggleSingleLamp(13)" id="lampBtn13" >LIGHT 13</button>
+			<button onclick="toggleSingleLamp(14)" id="lampBtn14" >LIGHT 14</button>
+			
+		</div>
+
+		<div class="blocky">
+		<button onclick="setSelectedLights([1,2,3,4,5,6,7,8,9,10,11,12,13,14])">Select All</button>
+			<button onclick="lampOnAll()" style="background:#1f6f2c;">All On</button>
+			<button onclick="lampOffAll()" style="background:#7a1f1f;">All Off</button>
+		</div>
+
+	</div>
+
+
+</div>
+
+<script src="iro.js"></script>
+
+<script type="text/javascript">
+
+	var socket = io.connect();
+	var uiHolders = document.getElementById("content").querySelectorAll(".holder");
+	var selectedLights = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+	var lampStates = {1:false, 2:false, 3:false};
+	var wizColorTimer = null;
+
+	divsoff();
+	document.getElementById("buttons").style.display = "block";
+
+	var colorPicker = new iro.ColorPicker("#picker", {
+	    width: 945,
+	    boxHeight: 945,
+	    handleRadius: 40
+	});
+
+	colorPicker.on('color:change', function(color) {
+	    clearTimeout(wizColorTimer);
+
+	    wizColorTimer = setTimeout(function() {
+	        socket.emit('colorToBack', {
+	            lights: selectedLights,
+	            color: color.hexString,
+	            dimming: 100
+	        });
+	    }, 100);
+	});
+
+	socket.on('disconnect', function () {
+		disconnected();
+	});
+
+	socket.on('reconnect', function () {
+		reconnected();
+	});
+
+	socket.on('connect', function () {
+		reconnected();
+	});
+
+	socket.on('lampState', function(data) {
+		if (!data || !Array.isArray(data.results)) return;
+
+		data.results.forEach(function(result) {
+			if (result && result.ok) {
+				lampStates[result.light] = !!result.isOn;
+				updateLampButton(result.light);
+			}
+		});
+	});
+
+	socket.on('wizStatus', function(data) {
+		if (!data || !Array.isArray(data.results)) return;
+
+		if (data.action === 'toggleLamp') {
+			data.results.forEach(function(result) {
+				if (result && result.ok) {
+					lampStates[result.light] = !!result.isOn;
+					updateLampButton(result.light);
+				}
+			});
+		}
+
+		if (data.action === 'lampOn') {
+			data.results.forEach(function(result) {
+				if (result && result.ok) {
+					lampStates[result.light] = true;
+					updateLampButton(result.light);
+				}
+			});
+		}
+
+		if (data.action === 'lampOff') {
+			data.results.forEach(function(result) {
+				if (result && result.ok) {
+					lampStates[result.light] = false;
+					updateLampButton(result.light);
+				}
+			});
+		}
+
+		if (data.action === 'setColor') {
+			data.results.forEach(function(result) {
+				if (result && result.ok) {
+					lampStates[result.light] = true;
+					updateLampButton(result.light);
+				}
+			});
+		}
+	});
+
+	function disconnected() {
+		document.getElementById("disconnectedDiv").style.display = "block";
+	}
+
+	function reconnected() {
+		document.getElementById("disconnectedDiv").style.display = "none";
+		socket.emit('getLampState', { lights: [1,2,3,4,5,6,7,8,9,10,11,12,13,14] });
+	}
+
+	function divsoff() {
+		var i;
+		for (i = 0; i < uiHolders.length; i++) {
+			uiHolders[i].style.display = "none";
+		}
+	}
+
+	function setSelectedLights(lights) {
+		selectedLights = lights.slice();
+		updateSelectedButtons();
+	}
+
+	function toggleSingleLamp(lightId) {
+		selectedLights = [lightId];
+		updateSelectedButtons();
+
+		socket.emit('toggleLamp', {
+			light: lightId,
+			color: colorPicker.color.hexString,
+			dimming: 100
+		});
+	}
+
+	function lampOnAll() {
+		setSelectedLights([1,2,3]);
+		socket.emit('lampOn', { lights: [1,2,3,4,5,6,7,8,9,10,11,12,13,14] });
+	}
+
+	function lampOffAll() {
+		setSelectedLights([1,2,3]);
+		socket.emit('lampOff', { lights: [1,2,3,4,5,6,7,8,9,10,11,12,13,14] });
+	}
+
+	function updateLampButton(lightId) {
+		var btn = document.getElementById('lampBtn' + lightId);
+		if (!btn) return;
+
+		var isSelected = selectedLights.indexOf(lightId) !== -1;
+		var isOn = !!lampStates[lightId];
+
+		if (isOn && isSelected) {
+			btn.style.background = '#2da847';
+			//btn.style.border = '#00ff00';
+			btn.style.color = '#fff';
+		} else if (isOn) {
+			btn.style.background = '#1f6f2c';
+			//btn.style.border = '#1f6f2c';
+			btn.style.color = '#fff';
+		} else if (isSelected) {
+			btn.style.background = '#666';
+			btn.style.color = '#fff';
+		} else {
+			btn.style.background = '#444';
+			btn.style.color = '#fff';
+		}
+	}
+
+	function updateSelectedButtons() {
+		[1,2,3,4,5,6,7,8,9,10,11,12,13,14].forEach(function(lightId) {
+			updateLampButton(lightId);
+		});
+	}
+
+	updateSelectedButtons();
+</script>
+</body>
+</html>
