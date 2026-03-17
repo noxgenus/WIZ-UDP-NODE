@@ -11,7 +11,7 @@
     <meta name="keywords" content="MB" />
     <meta name="robots" content="noindex, nofollow" />
 
-	<title>HOME AUTOMATION 2025</title>
+	<title>WIZ CONTROLLER</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 	
@@ -376,18 +376,19 @@
 			margin: 0;
 			line-height: 2vw;
 			text-transform: capitalize;
+			border: 1px solid #444;
 		}
 		button{
 			font-family: "TradeGothicLTPro-Bold";
-			width: 214px;
-			margin:10px;
-			padding:18px 28px;
-			font-size:30px;
-			background:#333;
-			color:#fff;
-			border:0;
-			line-height: 5vw;
-			cursor:pointer;
+			width: 213.9px;
+			margin: 10px;
+			padding: 20px 28px 15px;
+			font-size: 30px;
+			background: #888;
+			color: #fff;
+			border: 0;
+			line-height: 4.8vw;
+			cursor: pointer;
 		}
 
 	</style>
@@ -400,7 +401,7 @@
 	<div class="holder" id="disconnectedDiv">
 		<div class="flexed">
 			<div class="flexcontent">
-				<h1>DISCONNECTED FROM BASE</h1>
+				<h1>DISCONNECTED</h1>
 			</div>
 		</div>
 	</div>
@@ -444,7 +445,7 @@
 		</div>
 
 		<div class="blocky">
-		<button onclick="setSelectedLights([1,2,3,4,5,6,7,8,9,10,11,12,13,14])">Select All</button>
+		<button onclick="setSelectedLights([1,2,3,4,5,6,7,8,9,10,11,12,13,14])" style="background:#1f426f;">Select All</button>
 			<button onclick="lampOnAll()" style="background:#1f6f2c;">All On</button>
 			<button onclick="lampOffAll()" style="background:#7a1f1f;">All Off</button>
 		</div>
@@ -606,7 +607,7 @@
 			//btn.style.border = '#1f6f2c';
 			btn.style.color = '#fff';
 		} else if (isSelected) {
-			btn.style.background = '#666';
+			btn.style.background = '#777';
 			btn.style.color = '#fff';
 		} else {
 			btn.style.background = '#444';

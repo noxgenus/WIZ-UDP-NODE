@@ -1,14 +1,58 @@
 {
   "1": {
-    "color": "#00ff8c",
+    "color": "#e3cd05",
     "dimming": 100
   },
   "2": {
-    "color": "#ffffff",
+    "color": "#e3cd05",
     "dimming": 100
   },
   "3": {
-    "color": "#ffffff",
+    "color": "#e3cd05",
+    "dimming": 100
+  },
+  "4": {
+    "color": "#fcf6aa",
+    "dimming": 100
+  },
+  "5": {
+    "color": "#fcf6aa",
+    "dimming": 100
+  },
+  "6": {
+    "color": "#fcf6aa",
+    "dimming": 100
+  },
+  "7": {
+    "color": "#fcf6aa",
+    "dimming": 100
+  },
+  "8": {
+    "color": "#fcf6aa",
+    "dimming": 100
+  },
+  "9": {
+    "color": "#fcf6aa",
+    "dimming": 100
+  },
+  "10": {
+    "color": "#fcf6aa",
+    "dimming": 100
+  },
+  "11": {
+    "color": "#fcf6aa",
+    "dimming": 100
+  },
+  "12": {
+    "color": "#fcf6aa",
+    "dimming": 100
+  },
+  "13": {
+    "color": "#fcf6aa",
+    "dimming": 100
+  },
+  "14": {
+    "color": "#fcf6aa",
     "dimming": 100
   }
 }
