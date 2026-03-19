@@ -1,7 +1,7 @@
 // -------------------------------------------------------------------------------
 // NODEJS/SOCKETiO/ESP8266/UDP TEMPLATE
 // Project: "SH LIGHTS"
-// V4.6 FOR WEMOS D1 Mini / Philips WIZ
+// V1.0 FOR WEMOS D1 Mini / Philips WIZ
 // By Victor Winters | 14.3.2026
 //
 // patched for WiZ color/state/toggle + persistent JSON lamp memory
@@ -9,7 +9,7 @@
 
 // node v20.20.1
 // X64/ARM architecture
-// http://IP:8081
+// http://IP:8082
 
 // -------------------------------------------------------------------------------
 // SERVER
@@ -23,7 +23,7 @@ const path = require('path');
 const dgram = require('dgram');
 const fs = require('fs');
 
-require('events').EventEmitter.prototype._maxListeners = 0;
+// require('events').EventEmitter.prototype._maxListeners = 0;
 
 app.use(express.static(path.join(__dirname, 'controller')));
 
@@ -32,7 +32,7 @@ app.get('/house', function(req, res) {
 });
 
 // PORT
-server.listen(8081);
+server.listen(8082);
 
 // -------------------------------------------------------------------------------
 // VARS
@@ -42,20 +42,20 @@ const WIZ_PORT = 38899;
 const MEMORY_FILE = path.join(__dirname, 'lamp_memory.json');
 
 // Philips WIZ UDP lamps-----------------
-var udpLight1IP = '10.0.0.20'; 
-var udpLight2IP = '10.0.0.21'; 
-var udpLight3IP = '10.0.0.22';
-var udpLight4IP = '10.0.0.23';
-var udpLight5IP = '10.0.0.23';
-var udpLight6IP = '10.0.0.23';
-var udpLight7IP = '10.0.0.23';
-var udpLight8IP = '10.0.0.23';
-var udpLight9IP = '10.0.0.23';
-var udpLight10IP = '10.0.0.23';
-var udpLight11IP = '10.0.0.23';
-var udpLight12IP = '10.0.0.23';
-var udpLight13IP = '10.0.0.23';
-var udpLight14IP = '10.0.0.23';
+var udpLight1IP = '10.0.2.20'; 
+var udpLight2IP = '10.0.2.21'; 
+var udpLight3IP = '10.0.2.22';
+var udpLight4IP = '10.0.2.23';
+var udpLight5IP = '10.0.2.24';
+var udpLight6IP = '10.0.2.25';
+var udpLight7IP = '10.0.2.26';
+var udpLight8IP = '10.0.2.27';
+var udpLight9IP = '10.0.2.28';
+var udpLight10IP = '10.0.2.29';
+var udpLight11IP = '10.0.2.30';
+var udpLight12IP = '10.0.2.31';
+var udpLight13IP = '10.0.2.32';
+var udpLight14IP = '10.0.2.33';
 
 var lampMemoryDefaults = {
   1: { color: '#fcf6aa', dimming: 100 },
@@ -71,7 +71,7 @@ var lampMemoryDefaults = {
   11: { color: '#fcf6aa', dimming: 100 },
   12: { color: '#fcf6aa', dimming: 100 },
   13: { color: '#fcf6aa', dimming: 100 },
-  14: { color: '#fcf6aa', dimming: 100 }
+  14: { color: '#2da847', dimming: 100 }
 };
 
 var lampMemory = loadLampMemory();
@@ -536,7 +536,7 @@ io.on('connection', function(socket) {
   });
 });
 
-console.log('HOME AUTOMATION 2026 RUNNING...');
+console.log('WIZ CONTROLLER RUNNING...');
 
 // -------------------------------------------------------------------------------
 // NODE EXIT HANDLER

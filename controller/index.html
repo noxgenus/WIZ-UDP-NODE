@@ -369,20 +369,35 @@
 		}
 
 		.blocky{
-			display: block;
-			width: 100%;
-			padding: 4vw;
+			position: relative;
+			display: inline-block;
+			width: 49.8%;
+			padding: 2vw;
 			box-sizing: border-box;
 			margin: 0;
 			line-height: 2vw;
 			text-transform: capitalize;
-			border: 1px solid #444;
+			height: 100% !important;
+    		min-height: 100% !important;
+		
 		}
+		.blocky2{
+			position: relative;
+			display: inline-block;
+			width: 24.8%;
+			padding: 2vw 0;
+			box-sizing: border-box;
+			margin: 0;
+			line-height: 2vw;
+			text-transform: capitalize;
+		
+		}
+
 		button{
 			font-family: "TradeGothicLTPro-Bold";
-			width: 213.9px;
+			width: 199.9px;
 			margin: 10px;
-			padding: 20px 28px 15px;
+			padding: 0px 24px 0px;
 			font-size: 30px;
 			background: #888;
 			color: #fff;
@@ -416,13 +431,20 @@
 
 	<div class="holder" id="buttons">
 
-		<div class="blocky">
+		<div class="blocky left">
 
 			<div id="picker"></div>
 
 		</div>
 
-		<div class="blocky">
+		<div class="blocky2 left">
+			<button onclick="lampOnAll()" style="background:#1f6f2c;">All On</button>
+			<button onclick="lampOffAll()" style="background:#7a1f1f;">All Off</button>
+						<button onclick="setSelectedLights([1,2,3,4,5,6,7,8,9,10,11,12,13,14])" style="background:#1f426f;">Select All</button>
+
+		</div>
+
+		<div class="blocky2 right">
 			<!-- table island 1 -->
 			<button onclick="toggleSingleLamp(1)" id="lampBtn1" >LIGHT 1</button>
 			<button onclick="toggleSingleLamp(2)" id="lampBtn2" >LIGHT 2</button>
@@ -441,17 +463,9 @@
 			<!-- table island 4 -->
 			<button onclick="toggleSingleLamp(13)" id="lampBtn13" >LIGHT 13</button>
 			<button onclick="toggleSingleLamp(14)" id="lampBtn14" >LIGHT 14</button>
-			
-		</div>
-
-		<div class="blocky">
-		<button onclick="setSelectedLights([1,2,3,4,5,6,7,8,9,10,11,12,13,14])" style="background:#1f426f;">Select All</button>
-			<button onclick="lampOnAll()" style="background:#1f6f2c;">All On</button>
-			<button onclick="lampOffAll()" style="background:#7a1f1f;">All Off</button>
 		</div>
 
 	</div>
-
 
 </div>
 
@@ -469,8 +483,8 @@
 	document.getElementById("buttons").style.display = "block";
 
 	var colorPicker = new iro.ColorPicker("#picker", {
-	    width: 945,
-	    boxHeight: 945,
+	    width: 800,
+	    boxHeight: 800,
 	    handleRadius: 40
 	});
 
